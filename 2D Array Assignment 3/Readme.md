@@ -1,4 +1,4 @@
-# DSA 2D Array 2st Assignment
+# DSA 2D Array 3rd Assignment
 
 ## Q1
   A permutation perm of n + 1 integers of all the integers in the range [0, n] can be represented as a string s of length n where:
