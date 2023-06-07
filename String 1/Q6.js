@@ -22,5 +22,5 @@ const rotateString = (s, goal) => {
   const s = "abcde";
   const goal = "cdeab";
   console.log(rotateString(s, goal));
-  // Output: true
+  
   

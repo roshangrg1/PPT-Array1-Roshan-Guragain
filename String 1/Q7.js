@@ -36,4 +36,4 @@ const buildString = (str) => {
   const s = "ab#c";
   const t = "ad#c";
   console.log(backspaceCompare(s, t));
-  // Output: true
+  

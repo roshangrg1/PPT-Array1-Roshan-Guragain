@@ -15,4 +15,4 @@ const addStrings = (num1, num2) => {
   };
   
   console.log(addStrings("11", "123"));
-  // Output: "134"
+  

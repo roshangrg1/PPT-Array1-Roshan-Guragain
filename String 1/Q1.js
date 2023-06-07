@@ -37,4 +37,4 @@ const isIsomorphic = (s, t) => {
   const s = "egg";
   const t = "add";
   console.log(isIsomorphic(s, t));
-  // Output: true
+  

@@ -42,4 +42,4 @@ const isStrobogrammatic = (num) => {
   
   const num = "69";
   console.log(isStrobogrammatic(num));
-  // Output: true
+  

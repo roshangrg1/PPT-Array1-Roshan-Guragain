@@ -314,4 +314,5 @@ You are given an array coordinates, coordinates[i] = [x, y], where [x, y] repres
     [6, 7],
   ];
   console.log(checkStraightLine(coordinates));
+  
 ```

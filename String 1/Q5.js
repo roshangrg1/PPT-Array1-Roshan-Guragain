@@ -30,4 +30,3 @@ const reverseStr = (S, k) => {
   const s = "abcdefg";
   const k = 2;
   console.log(reverseStr(s, k));
-  // Output: "bacdfeg"

@@ -37,4 +37,4 @@ const checkStraightLine = (coordinates) => {
     [6, 7],
   ];
   console.log(checkStraightLine(coordinates));
-  // Output: true
+  
