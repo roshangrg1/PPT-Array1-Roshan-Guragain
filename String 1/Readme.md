@@ -1,4 +1,4 @@
-# DSA String 2nd Assignment by roshan
+# DSA String 1st Assignment by roshan
 
 ## Q1
 
