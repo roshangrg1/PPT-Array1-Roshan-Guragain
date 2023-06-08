@@ -1,4 +1,4 @@
-# DSA String 1st Assignment
+# DSA String 2nd Assignment
 
 ## Q1
 
