@@ -1,4 +1,4 @@
-# DSA 2D Array 2st Assignment
+# DSA 2D Array 2nd Assignment
 
 ## Q1
   Convert 1D Array Into 2D Array
