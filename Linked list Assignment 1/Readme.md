@@ -178,6 +178,63 @@ linked list, the output is -1.
 
 
 ```javascript
+class Node {
+    constructor(data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
+  
+  const findNthFromEnd = (head, N) => {
+    let mainPtr = head;
+    let refPtr = head;
+  
+    // Move mainPtr N nodes ahead
+    let count = 0;
+    while (count < N) {
+      if (!mainPtr) {
+        // N is greater than the number of nodes
+        return -1;
+      }
+      mainPtr = mainPtr.next;
+      count++;
+    }
+  
+    // Move both pointers until mainPtr reaches the end
+    while (mainPtr) {
+      mainPtr = mainPtr.next;
+      refPtr = refPtr.next;
+    }
+  
+    return refPtr.data;
+  };
+  
+  // Example 1
+  const head1 = new Node(1);
+  head1.next = new Node(2);
+  head1.next.next = new Node(3);
+  head1.next.next.next = new Node(4);
+  head1.next.next.next.next = new Node(5);
+  head1.next.next.next.next.next = new Node(6);
+  head1.next.next.next.next.next.next = new Node(7);
+  head1.next.next.next.next.next.next.next = new Node(8);
+  head1.next.next.next.next.next.next.next.next = new Node(9);
+  
+  const N1 = 2;
+  const nthFromEnd1 = findNthFromEnd(head1, N1);
+  console.log(nthFromEnd1);
+  // Output: 8
+  
+  // Example 2
+  const head2 = new Node(10);
+  head2.next = new Node(5);
+  head2.next.next = new Node(100);
+  head2.next.next.next = new Node(5);
+  
+  const N2 = 5;
+  const nthFromEnd2 = findNthFromEnd(head2, N2);
+  console.log(nthFromEnd2);
+  // Output: -1
 
 ```
 
@@ -261,7 +318,47 @@ class Node {
 
 ## Q5
 
+Given a linked list of **N** nodes such that it may contain a loop.
 
+A loop here means that the last node of the link list is connected to the node at position X(1-based index). If the link list does not have any loop, X=0.
+
+Remove the loop from the linked list, if it is present, i.e. unlink the last node which is forming the loop.
+
+**Example 1:**
+Input:
+N = 3
+value[] = {1,3,4}
+X = 2
+Output:1
+Explanation:The link list looks like
+1 -> 3 -> 4
+     ^    |
+     |____|
+A loop is present. If you remove it
+successfully, the answer will be 1.
+
+**Example 2:**
+Input:
+N = 4
+value[] = {1,8,3,4}
+X = 0
+Output:1
+Explanation:The Linked list does not
+contains any loop.
+
+**Example 3:**
+Input:
+N = 4
+value[] = {1,2,3,4}
+X = 1
+Output:1
+Explanation:The link list looks like
+1 -> 2 -> 3 -> 4
+^              |
+|______________|
+A loop is present.
+If you remove it successfully,
+the ans
 
 
 ### Answer -
@@ -274,6 +371,26 @@ class Node {
 ## Q6
 
 
+Given a linked list and two integers M and N. Traverse the linked list such that you retain M nodes then delete next N nodes, continue the same till end of the linked list.
+
+**Examples**:
+Input:
+M = 2, N = 2
+Linked List: 1->2->3->4->5->6->7->8
+Output:
+Linked List: 1->2->5->6
+
+Input:
+M = 3, N = 2
+Linked List: 1->2->3->4->5->6->7->8->9->10
+Output:
+Linked List: 1->2->3->6->7->8
+
+Input:
+M = 1, N = 1
+Linked List: 1->2->3->4->5->6->7->8->9->10
+Output:
+Linked List: 1->3->5->7->9
 
 
 ### Answer -
@@ -281,6 +398,107 @@ class Node {
 
 ```javascript
 
+class Node {
+    constructor(data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
+  
+  const retainDelete = (head, M, N) => {
+    if (!head || M === 0 || N === 0) {
+      return head;
+    }
+  
+    let current = head;
+  
+    while (current) {
+      for (let i = 1; i < M && current; i++) {
+        current = current.next;
+      }
+  
+      if (!current) {
+        break;
+      }
+  
+      let temp = current;
+  
+      for (let i = 0; i < N && temp; i++) {
+        temp = temp.next;
+      }
+  
+      if (temp) {
+        current.next = temp.next;
+      } else {
+        current.next = null;
+      }
+  
+      current = current.next;
+    }
+  
+    return head;
+  };
+  
+  // Example 1
+  const head1 = new Node(1);
+  head1.next = new Node(2);
+  head1.next.next = new Node(3);
+  head1.next.next.next = new Node(4);
+  head1.next.next.next.next = new Node(5);
+  head1.next.next.next.next.next = new Node(6);
+  head1.next.next.next.next.next.next = new Node(7);
+  head1.next.next.next.next.next.next.next = new Node(8);
+  
+  const modifiedList1 = retainDelete(head1, 2, 2);
+  
+  let curr = modifiedList1;
+  while (curr) {
+    console.log(curr.data);
+    curr = curr.next;
+  }
+  // Output: 1 2 5 6
+  
+  // Example 2
+  const head2 = new Node(1);
+  head2.next = new Node(2);
+  head2.next.next = new Node(3);
+  head2.next.next.next = new Node(4);
+  head2.next.next.next.next = new Node(5);
+  head2.next.next.next.next.next = new Node(6);
+  head2.next.next.next.next.next.next = new Node(7);
+  head2.next.next.next.next.next.next.next = new Node(8);
+  head2.next.next.next.next.next.next.next.next = new Node(9);
+  head2.next.next.next.next.next.next.next.next.next = new Node(10);
+  
+  const modifiedList2 = retainDelete(head2, 3, 2);
+  
+  curr = modifiedList2;
+  while (curr) {
+    console.log(curr.data);
+    curr = curr.next;
+  }
+  // Output: 1 2 3 6 7 8
+  
+  // Example 3
+  const head3 = new Node(1);
+  head3.next = new Node(2);
+  head3.next.next = new Node(3);
+  head3.next.next.next = new Node(4);
+  head3.next.next.next.next = new Node(5);
+  head3.next.next.next.next.next = new Node(6);
+  head3.next.next.next.next.next.next = new Node(7);
+  head3.next.next.next.next.next.next.next = new Node(8);
+  head3.next.next.next.next.next.next.next.next = new Node(9);
+  head3.next.next.next.next.next.next.next.next.next = new Node(10);
+  
+  const modifiedList3 = retainDelete(head3, 1, 1);
+  
+  curr = modifiedList3;
+  while (curr) {
+    console.log(curr.data);
+    curr = curr.next;
+  }
+  // Output: 1 3 5 7 9
 ```
 
 ## Q7

@@ -21,35 +21,60 @@
 // is more than the number of nodes in the
 // linked list, the output is -1.
 
-var removeNthFromEnd = function(head, n) {
-    if (head === null) {
-        return head;
+class Node {
+    constructor(data) {
+      this.data = data;
+      this.next = null;
     }
-    
-    let ptr = head;
+  }
+  
+  const findNthFromEnd = (head, N) => {
+    let mainPtr = head;
+    let refPtr = head;
+  
+    // Move mainPtr N nodes ahead
     let count = 0;
-    while (ptr !== null) {
-        count++;
-        ptr = ptr.next;
+    while (count < N) {
+      if (!mainPtr) {
+        // N is greater than the number of nodes
+        return -1;
+      }
+      mainPtr = mainPtr.next;
+      count++;
     }
-    
-    if (count === n) {
-        head = head.next;
-        return head;
+  
+    // Move both pointers until mainPtr reaches the end
+    while (mainPtr) {
+      mainPtr = mainPtr.next;
+      refPtr = refPtr.next;
     }
-    
-    ptr = head;
-    n = count - n - 1;
-    count = 0;
-    while (ptr !== null) {
-        if (count === n) {
-            ptr.next = ptr.next.next;
-        }
-        count++;
-        ptr = ptr.next;
-    }
-    
-    return head;
-};
-
-console.log(removeNthFromEnd([1,2,3,4,5,6,7,8,9],2))
+  
+    return refPtr.data;
+  };
+  
+  // Example 1
+  const head1 = new Node(1);
+  head1.next = new Node(2);
+  head1.next.next = new Node(3);
+  head1.next.next.next = new Node(4);
+  head1.next.next.next.next = new Node(5);
+  head1.next.next.next.next.next = new Node(6);
+  head1.next.next.next.next.next.next = new Node(7);
+  head1.next.next.next.next.next.next.next = new Node(8);
+  head1.next.next.next.next.next.next.next.next = new Node(9);
+  
+  const N1 = 2;
+  const nthFromEnd1 = findNthFromEnd(head1, N1);
+  console.log(nthFromEnd1);
+  // Output: 8
+  
+  // Example 2
+  const head2 = new Node(10);
+  head2.next = new Node(5);
+  head2.next.next = new Node(100);
+  head2.next.next.next = new Node(5);
+  
+  const N2 = 5;
+  const nthFromEnd2 = findNthFromEnd(head2, N2);
+  console.log(nthFromEnd2);
+  // Output: -1
