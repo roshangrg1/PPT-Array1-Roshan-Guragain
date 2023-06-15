@@ -73,4 +73,4 @@ class Node {
     result += current.data + ' ';
     current = current.next;
   }
-  console.log(result.trim());node   
+  console.log(result.trim());  
