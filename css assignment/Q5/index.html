@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5</title>
+    <style>
+        .box{
+            /* height:100px;
+            width:100px; */
+            background-color: transparent;
+            background-image: url('https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg');
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+            background-position: center;
+          
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 123px ;
+            grid-template-rows: 123fr  123fr 123fr;
+            row-gap: 10px;
+            column-gap: 10px;
+            background-color: transparent;
+            display: flex;
+            height: 100vh;
+        }
+        .f3b{
+            flex: 0.6;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 10px;
+            column-gap: 10px;
+            background-color: transparent;
+        }
+        #box3{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            /* grid-row-start: 1;
+            grid-row-end: 3; */
+        }
+     
+        .l3b{
+            flex:0.4;
+            display: grid;
+            grid-template-rows:1fr 1fr 1fr;
+            row-gap: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+       <div class="f3b">
+         <div class="box" id="box1">o</div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+       </div>
+       <div class="l3b">
+         <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+        <div class="box" id="box6"></div>
+       </div>
+    </div>
+</body>
+</html>
