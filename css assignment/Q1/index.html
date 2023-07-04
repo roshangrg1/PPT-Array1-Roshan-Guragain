@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      .box {
+        border: 2px solid rgb(111, 0, 255);
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        margin: 2px;
+        background-color: rgb(255, 255, 173);
+      }
+      #box3 {
+        /* position: relative;
+            top: 34px;
+            left: 34px;        */
+
+        /* position: absolute;
+            top: 34px;
+            left: 34px;         */
+
+        /* position: fixed;
+            right: 4px;
+         */
+
+        position: sticky;
+        top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <!-- <h2>  </h2> -->
+  </body>
 </html>

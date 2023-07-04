@@ -1,34 +1,16 @@
 
-# Video Streaming Platform. [golive](https://videostreame.netlify.app/)
+# Form
 
 ## About 
-    Video Streaming platform (STREAMME) is a complete frontend application that can search videos, stream videos, see view count,
-    channel count, like count where the api is added from rapid api and it has different routes by react router.
-
+    This project is all about form.
 ## Screenshots
 
-![App Screenshot](./src/utils/Screenshot%20(24).png)
-## Installation
+![App Screenshot](./Screenshot%20(87).png)
 
-`
-    react
-`
-`
-    react-router-dom
-`
-`
-    axios
-`
-`
-    react-icons
-`
 
 ## What i learned in this project.
 
-- Functional components and their reusuability.
-- Handling different routes with react -router.
-- Worked with Api and fetched the data from it.
-- Made device independent (responsiveness) of web app.
+- Different type of form input.
 
 
 ## 🚀 About Me

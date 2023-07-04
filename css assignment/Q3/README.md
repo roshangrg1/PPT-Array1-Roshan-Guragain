@@ -1,34 +1,36 @@
 
-# Video Streaming Platform. [golive](https://videostreame.netlify.app/)
+# Execution context
 
 ## About 
-    Video Streaming platform (STREAMME) is a complete frontend application that can search videos, stream videos, see view count,
-    channel count, like count where the api is added from rapid api and it has different routes by react router.
+  Code Snippet 1 console.log('First'); setTimeout(() => console.log('Second'), 0); console.log('Third');
 
-## Screenshots
+ Code Snippet 2 console.log('First'); function secondCall() { console.log('Second'); } setTimeout(secondCall, 2000); setTimeout(() => console.log('Third'), 0); console.log('Third');
 
-![App Screenshot](./src/utils/Screenshot%20(24).png)
-## Installation
+Answer 6 javascript
 
-`
-    react
-`
-`
-    react-router-dom
-`
-`
-    axios
-`
-`
-    react-icons
-`
+The line console.log('First'); is executed synchronously, it is executed immediately. 
 
-## What i learned in this project.
+setTimeout will be placed in the event queue to be executed later, allowing the remaining synchronous code to continue execution.
 
-- Functional components and their reusuability.
-- Handling different routes with react -router.
-- Worked with Api and fetched the data from it.
-- Made device independent (responsiveness) of web app.
+After the delay (which is effectively 0 milliseconds), the callback function () => console.log('Second') is moved from the event queue to the call stack for execution. 
+
+Therefore the output is :
+First , third second
+
+The first console.log('First'); statement is executed immediately and logs 'First' to the console. 
+
+The setTimeout(() => console.log('Third'), 0); statement schedules the anonymous arrow function to be executed after a delay of 0 milliseconds, but it is placed in the event loop and will be executed later. 
+
+The next console.log('Third'); statement is executed immediately and logs 'Third' to the console. 
+
+After that, the setTimeout(secondCall, 2000); statement schedules the secondCall function to be executed after a delay of 2000 milliseconds (2 seconds).
+
+ Finally, the anonymous arrow function scheduled by setTimeout(() => console.log('Third'), 0); is executed and logs 'Third' to the console. After a delay of 2 seconds, the secondCall function is executed and logs 'Second' to the console.
+
+Output 
+First third third second
+
+
 
 
 ## 🚀 About Me
